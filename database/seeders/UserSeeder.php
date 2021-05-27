@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             \App\Models\User::factory(1)->create([
-                'email' => "user$i@emailll.com"
+                'email' => "user$i@email.com"
             ]);
         }
     }

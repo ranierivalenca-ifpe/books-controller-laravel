@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -15,6 +17,7 @@ class BookController extends Controller
     public function index()
     {
         //
+        return 'Hello world';
     }
 
     /**
@@ -25,6 +28,7 @@ class BookController extends Controller
     public function create()
     {
         //
+        return "CREATE";
     }
 
     /**
@@ -36,6 +40,15 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
+        Book::create([
+            'name' => $request->name,
+            'author' => $request->author,
+            'year' => $request->year,
+            'genre_id' => $request->genre,
+            'user_id' => Auth::user()->id
+        ]);
+
+        return Redirect::route('dashboard');
     }
 
     /**

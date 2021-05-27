@@ -15,7 +15,8 @@ class BookSeeder extends Seeder
     {
         for ($i = 0; $i < 30; $i++) {
             \App\Models\Book::factory(1)->create([
-                'user_id' => \App\Models\User::all()->random()
+                'user_id' => \App\Models\User::all()->random(),
+                'genre_id' => \App\Models\Genre::all()->random()
             ]);
         }
     }
