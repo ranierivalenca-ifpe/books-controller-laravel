@@ -94,5 +94,9 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+        if ($book->owner->id == Auth::user()->id) {
+            $book->delete();
+        }
+        return Redirect::route('dashboard');
     }
 }
